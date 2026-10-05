@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rahul Agarwal — Lyricist &amp; Writer</title>
+<meta name="description" content="Rahul Agarwal is a lyricist and writer exploring love, longing, memory, and the quiet emotions hidden in everyday life.">
+<meta property="og:title" content="Rahul Agarwal — Lyricist &amp; Writer">
+<meta property="og:description" content="Lyrics, poetry, scripts and essays by Rahul Agarwal, Mumbai.">
+<meta property="og:image" content="assets/cover.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Figtree:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<link rel="stylesheet" href="styles.css">
+<script src="content.js" defer></script>
+<script src="main.js" defer></script>
+</head>
+<body>
+<div class="page">
+
+  <header class="site-header">
+    <nav class="pill-bar">
+      <a href="#intro" class="brand">Rahul Agarwal</a>
+      <div class="nav-links">
+        <a href="#statement" class="nav-link">Statement</a>
+        <a href="#work" class="nav-link">Work</a>
+        <a href="#lines" class="nav-link">Lines</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="resume.pdf" download class="btn btn-ink btn-sm" data-resume>Resume <span aria-hidden="true">↓</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <section id="intro" class="intro">
+      <div class="intro-text">
+        <div class="chips">
+          <span class="chip chip-clay">Lyricist &amp; writer</span>
+          <span class="chip chip-sage">Mumbai, India</span>
+        </div>
+        <h1 class="hero-title">Hi, I'm Rahul.</h1>
+        <p class="hero-lede">I'm a lyricist and writer exploring love, longing, memory, and the quiet emotions hidden in everyday life. I'm looking for my next step as an assistant or associate writer.</p>
+        <div class="btn-row">
+          <a href="#work" class="btn btn-clay">Read my work <span aria-hidden="true">→</span></a>
+          <a href="resume.pdf" download class="btn btn-outline" data-resume>Download resume <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <div class="portrait-wrap">
+        <div class="blob blob-sage" aria-hidden="true"></div>
+        <div class="blob blob-clay" aria-hidden="true"></div>
+        <div class="portrait">
+          <!-- Your photo; the placeholder shows if the file is missing. -->
+          <div class="portrait-placeholder" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></svg>
+            <span>Your portrait</span>
+          </div>
+          <img src="assets/photo_2026-03-10_22-39-06.jpg.png" alt="Portrait of Rahul Agarwal" onerror="this.remove()">
+        </div>
+      </div>
+    </section>
+
+    <section id="statement" class="statement">
+      <div class="statement-grid">
+        <div class="section-head">
+          <span class="eyebrow eyebrow-sage">Artist statement</span>
+          <h2 class="section-title">Why I write</h2>
+        </div>
+        <div class="statement-card">
+          <!-- This first paragraph also appears in the full statement below; edit both. -->
+          <p class="statement-lede">I write to capture emotions that are often difficult to put into words. My work explores love, longing, nostalgia, identity, and the small moments that stay with us long after they pass. Through lyrics and poetry, I try to turn personal experiences and observations into stories that feel intimate yet universal.</p>
+          <a href="#artist-statement" class="btn btn-moss">Read the full statement <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="work">
+      <div class="section-bar">
+        <div class="section-head">
+          <span class="eyebrow eyebrow-clay">Selected work</span>
+          <h2 class="section-title">Things I've written</h2>
+        </div>
+        <div class="filters" role="group" aria-label="Filter work by type" id="filters"></div>
+      </div>
+      <div class="work-grid" id="work-grid"></div>
+    </section>
+
+    <section id="lines" class="lines">
+      <div class="section-bar">
+        <div class="section-head">
+          <span class="eyebrow eyebrow-clay">Favourite lines</span>
+          <h2 class="section-title">A few lines that stayed</h2>
+        </div>
+        <div class="carousel-controls">
+          <span class="counter" id="counter" aria-live="polite"></span>
+          <button type="button" class="round-btn round-btn-outline" id="prev" aria-label="Previous line">←</button>
+          <button type="button" class="round-btn round-btn-ink" id="next" aria-label="Next line">→</button>
+        </div>
+      </div>
+      <div class="carousel" id="carousel" aria-roledescription="carousel" aria-label="Favourite lines">
+        <div class="carousel-blob" aria-hidden="true"></div>
+        <div class="carousel-track" id="track"></div>
+      </div>
+      <div class="dots" id="dots"></div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <div class="contact" id="contact-card">
+        <div class="contact-blob" aria-hidden="true"></div>
+        <div class="contact-text">
+          <span class="eyebrow">Contact</span>
+          <h2 class="contact-title">Let's make something that stays with people.</h2>
+          <p class="contact-lede">I'd love to hear about writing roles, collaborations, or a song that needs words. Based in Mumbai, India.</p>
+        </div>
+        <div class="contact-links">
+          <a href="mailto:rahulagarwal.230604@gmail.com" class="contact-link"><span>Email</span><span>rahulagarwal.230604@gmail.com</span></a>
+          <a href="https://www.instagram.com/rahulagarwal2304?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener" class="contact-link"><span>Instagram</span><span>@rahulagarwal2304 →</span></a>
+          <a href="tel:+919660105195" class="contact-link"><span>Phone</span><span>+91 96601-05195</span></a>
+          <a href="resume.pdf" download class="contact-link contact-link-solid" data-resume><span>Resume (PDF)</span><span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <footer class="site-footer">
+        <span>© 2026 Rahul Agarwal · Mumbai</span><a href="#intro">Back to top ↑</a>
+      </footer>
+    </section>
+  </main>
+
+  <div class="statement-page" id="statement-page" role="dialog" aria-modal="true" aria-label="Artist statement" hidden>
+    <div class="site-header statement-header">
+      <div class="pill-bar">
+        <span class="brand">Rahul Agarwal</span>
+        <button type="button" class="btn btn-ink btn-sm" data-close>Close <span aria-hidden="true">✕</span></button>
+      </div>
+    </div>
+    <article class="statement-article">
+      <div class="banner banner-sm">
+        <img src="assets/cover.png" alt="">
+      </div>
+      <div class="statement-body">
+        <span class="eyebrow eyebrow-sage">Artist statement</span>
+        <h1 class="statement-title">Why I write</h1>
+        <p class="statement-lede statement-lede-full">I write to capture emotions that are often difficult to put into words. My work explores love, longing, nostalgia, identity, and the small moments that stay with us long after they pass. Through lyrics and poetry, I try to turn personal experiences and observations into stories that feel intimate yet universal.</p>
+        <p class="statement-para">[Paste the rest of your artist statement here — one paragraph per block.]</p>
+        <div class="btn-row statement-actions">
+          <button type="button" class="btn btn-outline" data-close><span aria-hidden="true">←</span> Back to portfolio</button>
+          <a href="#work" class="btn btn-clay">Read my work <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
+</body>
+</html>
