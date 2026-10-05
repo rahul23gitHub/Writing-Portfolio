@@ -10,3 +10,9 @@ A static site with no build step. Open `index.html` through any static host (Git
 - **Resume**: `assets/Writing_Resume.pdf`. To use a different file or a link, change `resumeUrl` in `content.js`.
 
 The full statement opens at `#artist-statement`, so you can link to it directly.
+
+## Publishing updates
+
+The site is on GitHub Pages: https://rahul23github.github.io/Writing-Portfolio/
+
+GitHub tells browsers to keep files for 10 minutes, so after changing `styles.css`, `content.js` or `main.js`, bump the `?v=` number on their links in `index.html` (all three together). Visitors then get the new version straight away.

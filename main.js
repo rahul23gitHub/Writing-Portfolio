@@ -15,7 +15,7 @@
   }
 
   /* Settings */
-  document.querySelectorAll('[data-resume]').forEach((a) => a.setAttribute('href', settings.resumeUrl || 'resume.pdf'));
+  document.querySelectorAll('[data-resume]').forEach((a) => a.setAttribute('href', settings.resumeUrl || 'assets/Writing_Resume.pdf'));
   $('#contact-card').dataset.style = settings.contactStyle || 'Sage';
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
