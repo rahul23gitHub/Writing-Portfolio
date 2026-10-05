@@ -6,8 +6,8 @@ const N = 'https://app.notion.com/p/';
 
 window.SITE = {
   settings: {
-    // Path or link to your resume PDF (put resume.pdf next to index.html).
-    resumeUrl: 'resume.pdf',
+    // Path or link to your resume PDF.
+    resumeUrl: 'assets/Writing_Resume.pdf',
     // Lines carousel: move on by itself. Each line stays for its reading time
     // (word count ÷ reading speed) plus a few extra seconds.
     autoplay: true,
