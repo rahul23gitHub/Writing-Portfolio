@@ -208,7 +208,7 @@
   carousel.addEventListener('focusin', () => { paused = true; });
   carousel.addEventListener('focusout', () => { paused = false; });
 
-  // Swipe: the slide follows the finger, then moves on if dragged far enough.
+  // Swipe: the slide follows the finger, and any sideways swipe moves to the next/previous line.
   let touchX = null;
   let touchY = 0;
   let dragging = false;
@@ -234,7 +234,8 @@
     if (dragging) {
       const dx = e.changedTouches[0].clientX - touchX;
       track.style.transition = '';
-      go(Math.abs(dx) > carousel.offsetWidth * 0.18 ? idx + (dx < 0 ? 1 : -1) : idx);
+      // Any sideways swipe moves on, however short; only a tiny wobble stays put.
+      go(Math.abs(dx) > 10 ? idx + (dx < 0 ? 1 : -1) : idx);
     }
     touchX = null;
     dragging = false;
