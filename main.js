@@ -49,7 +49,7 @@
     ], { duration: 480, easing });
     if (!on) morph.finished.then(() => { header.style.height = ''; }, () => {});
     // Each link turns 90° from its old direction into the new one.
-    bar.querySelectorAll('.nav-link, .nav-links .btn').forEach((a, i) => a.animate([
+    bar.querySelectorAll('.nav-link, .pill-bar > .btn').forEach((a, i) => a.animate([
       { opacity: 0, transform: `rotate(${on ? -90 : 90}deg)` },
       { opacity: 1, transform: 'none' },
     ], { duration: 420, delay: 140 + i * 50, easing, fill: 'backwards' }));
@@ -207,6 +207,41 @@
   carousel.addEventListener('mouseleave', () => { paused = false; });
   carousel.addEventListener('focusin', () => { paused = true; });
   carousel.addEventListener('focusout', () => { paused = false; });
+
+  // Swipe: the slide follows the finger, then moves on if dragged far enough.
+  let touchX = null;
+  let touchY = 0;
+  let dragging = false;
+  carousel.addEventListener('touchstart', (e) => {
+    touchX = e.touches[0].clientX;
+    touchY = e.touches[0].clientY;
+    dragging = false;
+    paused = true;
+  }, { passive: true });
+  carousel.addEventListener('touchmove', (e) => {
+    if (touchX === null) return;
+    const dx = e.touches[0].clientX - touchX;
+    const dy = e.touches[0].clientY - touchY;
+    if (!dragging) {
+      if (Math.abs(dx) > 8 && Math.abs(dx) > Math.abs(dy)) dragging = true;
+      else if (Math.abs(dy) > 8) { touchX = null; paused = false; return; } // a page scroll, not a swipe
+      else return;
+    }
+    track.style.transition = 'none';
+    track.style.transform = `translateX(calc(-${idx * 100}% + ${dx}px))`;
+  }, { passive: true });
+  function endSwipe(e) {
+    if (dragging) {
+      const dx = e.changedTouches[0].clientX - touchX;
+      track.style.transition = '';
+      go(Math.abs(dx) > carousel.offsetWidth * 0.18 ? idx + (dx < 0 ? 1 : -1) : idx);
+    }
+    touchX = null;
+    dragging = false;
+    paused = false;
+  }
+  carousel.addEventListener('touchend', endSwipe);
+  carousel.addEventListener('touchcancel', endSwipe);
 
   if (settings.autoplay !== false && !reduceMotion && lines.length > 1) {
     const TICK = 250;

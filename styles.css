@@ -68,7 +68,7 @@ img { display: block; }
   box-shadow: var(--pill-shadow);
 }
 .brand { font-family: var(--serif); font-weight: 500; font-size: 22px; }
-.nav-links { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 15px; font-weight: 600; }
+.nav-links { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-left: auto; font-size: 15px; font-weight: 600; }
 .nav-link { padding: 10px 14px; border-radius: 999px; }
 .nav-link:hover { background: var(--sand); color: var(--ink); }
 
@@ -85,13 +85,13 @@ img { display: block; }
   flex-wrap: nowrap;
 }
 .site-header.is-rail .brand { display: none; }
-.site-header.is-rail .nav-links { flex-direction: column; flex-wrap: nowrap; }
+.site-header.is-rail .nav-links { flex-direction: column; flex-wrap: nowrap; margin-left: 0; }
 .site-header.is-rail .nav-link,
-.site-header.is-rail .nav-links .btn { writing-mode: vertical-rl; }
+.site-header.is-rail .pill-bar > .btn { writing-mode: vertical-rl; }
 .site-header.is-rail .nav-link { padding: 14px 10px; transition: background-color 250ms; }
 .site-header.is-rail .nav-link[aria-current] { background: var(--sand); }
-.site-header.is-rail .nav-links .btn { padding: 18px 10px; }
-.site-header.is-rail .nav-links .btn span { text-orientation: upright; }
+.site-header.is-rail .pill-bar > .btn { padding: 18px 10px; }
+.site-header.is-rail .pill-bar > .btn span { text-orientation: upright; }
 
 /* Buttons */
 .btn {
@@ -411,3 +411,50 @@ img { display: block; }
   html { scroll-behavior: auto; }
   .carousel-track, .work-card, .dot { transition: none; }
 }
+
+/* Phones and narrow tablets: the top bar is one slim row (name + Resume) that scrolls away,
+   and the section links float in a small bar at the bottom of the screen. */
+@media (max-width: 720px) {
+  .site-header { position: relative; padding: 12px 16px 0; }
+  .site-header .pill-bar {
+    flex-wrap: nowrap;
+    padding: 8px 8px 8px 20px;
+    /* A backdrop-filter here would trap the fixed bottom bar inside the pill. */
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  .site-header .brand { font-size: 20px; }
+  .site-header .nav-links {
+    position: fixed;
+    left: 50%;
+    bottom: calc(12px + env(safe-area-inset-bottom));
+    translate: -50% 0;
+    margin: 0;
+    padding: 5px;
+    gap: 2px;
+    flex-wrap: nowrap;
+    font-size: 14px;
+    background: rgba(245, 234, 216, 0.92);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-radius: 999px;
+    box-shadow: 0 4px 20px rgba(90, 60, 30, 0.18);
+  }
+  .site-header .nav-link { padding: 9px 12px; white-space: nowrap; transition: background-color 250ms; }
+  .site-header .nav-link[aria-current] { background: var(--sand); }
+  .site-footer { padding-bottom: 88px; } /* room for the bottom bar */
+
+  /* Work filters: one row that scrolls sideways instead of wrapping. */
+  .filters { flex-wrap: nowrap; width: 100%; overflow-x: auto; scrollbar-width: none; }
+  .filters::-webkit-scrollbar { display: none; }
+  .filter { flex: none; }
+
+  /* Contact rows: label above the value so long values (the email) fit. */
+  .contact { padding: 28px 20px; border-radius: 32px; }
+  .contact-link:not(.contact-link-solid) { flex-direction: column; align-items: flex-start; gap: 2px; padding: 14px 20px; border-radius: 24px; }
+  .contact-link:not(.contact-link-solid) > span:first-child { font-size: 13px; opacity: 0.75; }
+  .contact-link:not(.contact-link-solid) > span:last-child { font-size: 15px; overflow-wrap: anywhere; }
+}
+
+/* Lines carousel: horizontal swipes are handled in main.js; vertical ones still scroll the page. */
+.carousel { touch-action: pan-y; }
